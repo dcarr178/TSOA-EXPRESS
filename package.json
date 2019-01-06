@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
     "build": "grunt",
-    "start": "cd dist && node webserver"
+    "start": "cd dist && nodemon webserver"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +29,7 @@
     "grunt-exec": "^3.0.0",
     "grunt-ts": "^6.0.0-beta.21",
     "mocha": "^5.2.0",
+    "nodemon": "^1.18.9",
     "ts-node": "^7.0.1"
   }
 }

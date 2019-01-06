@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1 id="tsoaexpress">TSOA-EXPRESS</h1>
+<h1 id="tsoaexpress">TSOA Express</h1>
 
 <p>This project is a starting point for developing an auto-documenting, API-first application using TypeScript and Node.js. It uses Express as the web server and TSOA to automatically generate Express routes and Swagger API documentation.</p>
 
@@ -24,15 +24,13 @@ npm run start
 
 <h3 id="information">Information</h3>
 
-<pre><code class="/src/webserver/static/``` contains static html and css files to be served by the web server. This can include a web-packed angular/react progressive web app if you choose. language-/src/webserver/static/``` contains static html and css files to be served by the web server. This can include a web-packed angular/react progressive web app if you choose.">
-</code></pre>
+<p><code>/src/webserver/static/</code> contains static html and css files to be served by the web server. This can include a web-packed angular/react progressive web app if you choose.</p>
 
-<p>/src/api/helpers/<code>and</code>/src/api/models/``` contain whatever typescript data models and business logic that your api endpoints use.</p>
+<p><code>/src/api/helpers/</code> and <code>/src/api/models/</code> contain whatever typescript data models and business logic that your api endpoints use.</p>
 
-<pre><code class="/src/api/controllers/``` contains multiple controller files that describe your api endpoints and what they should do. TSOA makes extensive use of decorators to define endpoint security, http methods, and functionality. More information about tsoa decorators can be found here: https://github.com/lukeautry/tsoa. language-/src/api/controllers/``` contains multiple controller files that describe your api endpoints and what they should do. TSOA makes extensive use of decorators to define endpoint security, http methods, and functionality. More information about tsoa decorators can be found here: https://github.com/lukeautry/tsoa.">
-</code></pre>
+<p><code>/src/api/controllers/</code> contains multiple controller files that describe your api endpoints and what they should do. TSOA makes extensive use of decorators to define endpoint security, http methods, and functionality. More information about tsoa decorators can be found here: <a href="https://github.com/lukeautry/tsoa">https://github.com/lukeautry/tsoa</a>.</p>
 
-<p>/buildApi.js<code>takes all the controllers you have created and creates api routes for Express. It also creates a swagger.json file at</code>/src/webserver/static/api/swagger.json``` which is an open api specification format that many programs can read and write to so they can understand what your api can do. More information about swagger can be found here: <a href="https://swagger.io/specification/">https://swagger.io/specification/</a>.</p>
+<p><code>/buildApi.js</code> takes all the controllers you have created and creates api routes for Express. It also creates a swagger.json file at <code>/src/webserver/static/api/swagger.json</code> which is an open api specification format that many programs can read and write to so they can understand what your api can do. More information about swagger can be found here: <a href="https://swagger.io/specification/">https://swagger.io/specification/</a>.</p>
 
 <p><code>/src/webserver/static/api/</code> also contains default swagger-ui files that are helpful in viewing your swagger.json api endpoint documentation and in testing those api endpoints.</p>
 

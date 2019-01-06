@@ -4,7 +4,7 @@
 		"application/json"
 	],
 	"definitions": {
-		"iCustomer": {
+		"Customer": {
 			"properties": {
 				"id": {
 					"type": "number",
@@ -39,7 +39,7 @@
 			],
 			"type": "object"
 		},
-		"iCustomerToCreate": {
+		"NewCustomer": {
 			"properties": {
 				"email": {
 					"type": "string"
@@ -63,10 +63,12 @@
 		}
 	},
 	"info": {
-		"title": ""
+		"title": "TSOA Express",
+		"version": "0.1",
+		"description": "Starting point for developing an auto-documenting, API-first application using TypeScript and Node.js."
 	},
 	"paths": {
-		"/customer/{id}": {
+		"/customer/{customerId}": {
 			"get": {
 				"operationId": "GetCustomerEndpoint",
 				"produces": [
@@ -76,10 +78,11 @@
 					"200": {
 						"description": "Ok",
 						"schema": {
-							"$ref": "#/definitions/iCustomer"
+							"$ref": "#/definitions/Customer"
 						}
 					}
 				},
+				"description": "Query any customer by customerId",
 				"tags": [
 					"Customer Information"
 				],
@@ -87,7 +90,7 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "id",
+						"name": "customerId",
 						"required": true,
 						"format": "double",
 						"type": "number"
@@ -104,6 +107,7 @@
 						"description": "Deleted"
 					}
 				},
+				"description": "Delete a customer record",
 				"tags": [
 					"Customer Information"
 				],
@@ -111,7 +115,7 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "id",
+						"name": "customerId",
 						"required": true,
 						"format": "double",
 						"type": "number"
@@ -135,10 +139,11 @@
 					"201": {
 						"description": "Created",
 						"schema": {
-							"$ref": "#/definitions/iCustomer"
+							"$ref": "#/definitions/Customer"
 						}
 					}
 				},
+				"description": "Create a customer record",
 				"tags": [
 					"Customer Information"
 				],
@@ -146,11 +151,104 @@
 				"parameters": [
 					{
 						"in": "body",
-						"name": "requestBody",
+						"name": "newCustomer",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/iCustomerToCreate"
+							"$ref": "#/definitions/NewCustomer"
 						}
+					}
+				]
+			}
+		},
+		"/math/double/{number}": {
+			"get": {
+				"operationId": "Double",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "number",
+							"format": "double"
+						}
+					}
+				},
+				"description": "Double the number provided",
+				"tags": [
+					"Fun with Math"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "number",
+						"required": true,
+						"format": "double",
+						"type": "number"
+					}
+				]
+			}
+		},
+		"/math/triple/{number}": {
+			"get": {
+				"operationId": "Triple",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "number",
+							"format": "double"
+						}
+					}
+				},
+				"description": "Triple the number provided",
+				"tags": [
+					"Fun with Math"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "number",
+						"required": true,
+						"format": "double",
+						"type": "number"
+					}
+				]
+			}
+		},
+		"/math/squareroot/{number}": {
+			"get": {
+				"operationId": "SquareRoot",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"type": "number",
+							"format": "double"
+						}
+					}
+				},
+				"description": "Returns the square root of the number provided",
+				"tags": [
+					"Fun with Math"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "number",
+						"required": true,
+						"format": "double",
+						"type": "number"
 					}
 				]
 			}
@@ -160,5 +258,11 @@
 		"application/json"
 	],
 	"swagger": "2.0",
-	"securityDefinitions": {}
+	"securityDefinitions": {
+		"auth": {
+			"type": "apiKey",
+			"name": "authorization_key",
+			"in": "header"
+		}
+	}
 }

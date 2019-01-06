@@ -1,9 +1,9 @@
-import { iCustomer, iCustomerToCreate } from '../models/customerModel';
+import { Customer, NewCustomer } from '../models/customerModel';
 
-export const getCustomerById = async (customerId): Promise<iCustomer> => {
+export const getCustomerById = async (customerId): Promise<Customer> => {
 
   // todo someday look up customer in database for real
-  const customer: iCustomer = {
+  const customer: Customer = {
     id: 1,
     email: 'joe@apple.com',
     firstName: 'Joe',
@@ -18,10 +18,10 @@ export const getCustomerById = async (customerId): Promise<iCustomer> => {
 
 
 
-export const createCustomer = async (customerToCreate: iCustomerToCreate): Promise<iCustomer> => {
+export const createCustomer = async (customerToCreate: NewCustomer): Promise<Customer> => {
 
   // todo someday create customer in database and get customer id
-  const newCustomer: iCustomer = {
+  const newCustomer: Customer = {
     id: 5,
     status: 'Active',
     firstName: customerToCreate.firstName,

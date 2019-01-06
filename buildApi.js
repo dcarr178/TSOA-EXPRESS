@@ -31,4 +31,15 @@ tsoa.generateSwaggerSpec({
   basePath: webServerApiBasePath,
   entryFile,
   outputDirectory: "src/webserver/static/api",
+  name : "TSOA Express",
+  description: "Starting point for developing an auto-documenting, API-first application using TypeScript and Node.js.",
+  version: "0.1",
+  securityDefinitions: {
+    auth: {
+      type: "apiKey",
+      name: "authorization_key",
+      in: "header"
+    }
+  },
+
 });

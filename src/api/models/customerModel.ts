@@ -1,15 +1,15 @@
 
-export type iCustomerStatus = 'Active' | 'Inactive';
+export type CustomerStatus = 'Active' | 'Inactive';
 
-export interface iCustomer {
+export interface Customer {
   id: number,
-  status: iCustomerStatus,
+  status: CustomerStatus,
   email: string,
   firstName: string,
   phoneNumbers: string[],
 }
 
-export interface iCustomerToCreate {
+export interface NewCustomer {
   email: string,
   firstName: string,
   phoneNumbers: string[],
