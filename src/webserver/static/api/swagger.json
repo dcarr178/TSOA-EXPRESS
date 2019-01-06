@@ -1,0 +1,164 @@
+{
+	"basePath": "/api",
+	"consumes": [
+		"application/json"
+	],
+	"definitions": {
+		"iCustomer": {
+			"properties": {
+				"id": {
+					"type": "number",
+					"format": "double"
+				},
+				"status": {
+					"type": "string",
+					"enum": [
+						"Active",
+						"Inactive"
+					]
+				},
+				"email": {
+					"type": "string"
+				},
+				"firstName": {
+					"type": "string"
+				},
+				"phoneNumbers": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"required": [
+				"id",
+				"status",
+				"email",
+				"firstName",
+				"phoneNumbers"
+			],
+			"type": "object"
+		},
+		"iCustomerToCreate": {
+			"properties": {
+				"email": {
+					"type": "string"
+				},
+				"firstName": {
+					"type": "string"
+				},
+				"phoneNumbers": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"required": [
+				"email",
+				"firstName",
+				"phoneNumbers"
+			],
+			"type": "object"
+		}
+	},
+	"info": {
+		"title": ""
+	},
+	"paths": {
+		"/customer/{id}": {
+			"get": {
+				"operationId": "GetCustomerEndpoint",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/iCustomer"
+						}
+					}
+				},
+				"tags": [
+					"Customer Information"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"format": "double",
+						"type": "number"
+					}
+				]
+			},
+			"delete": {
+				"operationId": "DeleteCustomerEndpoint",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"202": {
+						"description": "Deleted"
+					}
+				},
+				"tags": [
+					"Customer Information"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"format": "double",
+						"type": "number"
+					},
+					{
+						"in": "header",
+						"name": "Authorization",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		},
+		"/customer": {
+			"post": {
+				"operationId": "CreateCustomerEndpoint",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"201": {
+						"description": "Created",
+						"schema": {
+							"$ref": "#/definitions/iCustomer"
+						}
+					}
+				},
+				"tags": [
+					"Customer Information"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "requestBody",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/iCustomerToCreate"
+						}
+					}
+				]
+			}
+		}
+	},
+	"produces": [
+		"application/json"
+	],
+	"swagger": "2.0",
+	"securityDefinitions": {}
+}

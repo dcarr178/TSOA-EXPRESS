@@ -1,0 +1,6 @@
+.idea/
+.tscache/
+dist/
+node_modules/
+*.iml
+.baseDir.ts
